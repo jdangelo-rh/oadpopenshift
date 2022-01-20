@@ -13,6 +13,10 @@ spec:
         region: noobaa
         s3ForcePathStyle: 'true'
           s3Url: 'https://s3-openshift-storage.apps.ocp4.example.com/'
+      credentials_secret_ref:
+        name: cloud-credentials
+        namespace: oadp-operator
+      name: default          
       objectStorage:
         bucket: bkpstorage-338576a4-7770-4de5-bac4-d142dbb57da7
         prefix: velero
