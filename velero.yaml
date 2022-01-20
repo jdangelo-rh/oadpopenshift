@@ -4,17 +4,19 @@ metadata:
   name: example-velero
   namespace: oadp-operator
 spec:
-  backupStorageLocations:
-    - config:
-        insecureSkipTLSVerify: 'true'
-        profile: default
-        region: noobaa
-        s3ForcePathStyle: 'true'
+ olm_managed: true
+ use_upstream_images: true
+ backupStorageLocations:
+   - config:
+       insecureSkipTLSVerify: 'true'
+       profile: default
+       region: noobaa
+       s3ForcePathStyle: 'true'
         s3Url: 'https://s3-openshift-storage.apps.ocp4.example.com/'
-      objectStorage:
-        bucket: bkpstorage-338576a4-7770-4de5-bac4-d142dbb57da7
-        prefix: velero
-      provider: aws
+     objectStorage:
+       bucket: bkpstorage-338576a4-7770-4de5-bac4-d142dbb57da7
+       prefix: velero
+     provider: aws
   defaultVeleroPlugins:
     - aws
     - csi
