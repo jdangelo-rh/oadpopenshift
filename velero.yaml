@@ -20,7 +20,7 @@ spec:
       objectStorage:
         bucket: bkpstorage-338576a4-7770-4de5-bac4-d142dbb57da7
         prefix: velero
-       provider: aws
+      provider: aws
   defaultVeleroPlugins:
     - aws
     - csi
