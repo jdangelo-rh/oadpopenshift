@@ -88,7 +88,8 @@ spec:
       enable: true
   backupLocations: 
     - name: default
-      velero:       
+      velero:
+        default: true
         config:
           insecureSkipTLSVerify: 'true'
           profile: default
