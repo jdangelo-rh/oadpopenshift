@@ -87,7 +87,6 @@ spec:
     restic:
       enable: true
   backupLocations: 
-    default: true
     - name: default
       velero:       
         config:
@@ -109,5 +108,4 @@ spec:
         provider: aws
         config:
           region: noobaa
-          profile: "default"
-    default: true     
+          profile: "default"     
