@@ -102,11 +102,4 @@ spec:
         objectStorage:
           bucket: veleroobc-4f44dc3b-5737-4b53-91fa-844974d3bec4
           prefix: velero
-        provider: aws
-  snapshotLocations:
-    - name: default
-      velero:
-        provider: aws
-        config:
-          region: noobaa
-          profile: "default"     
+        provider: aws  
