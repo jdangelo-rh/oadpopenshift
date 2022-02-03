@@ -87,20 +87,22 @@ spec:
     restic:
       enable: true
   backupLocations: 
-    - config:
-        insecureSkipTLSVerify: 'true'
-        profile: default
-        region: noobaa
-        s3ForcePathStyle: 'true'
-        s3Url: 'https://s3-openshift-storage.apps.ocp4.example.com/'
-      credential:
-        name: cloud-credentials
-        key: cloud          
-      objectStorage:
-        bucket: veleroobc-4f44dc3b-5737-4b53-91fa-844974d3bec4
-        prefix: velero
-      provider: aws
-      default: true
+    default: true
+    - name: default
+      velero:       
+        config:
+          insecureSkipTLSVerify: 'true'
+          profile: default
+          region: noobaa
+          s3ForcePathStyle: 'true'
+          s3Url: 'https://s3-openshift-storage.apps.ocp4.example.com/'
+        credential:
+          name: cloud-credentials
+          key: cloud          
+        objectStorage:
+          bucket: veleroobc-4f44dc3b-5737-4b53-91fa-844974d3bec4
+          prefix: velero
+        provider: aws
   snapshotLocations:
     - name: default
       velero:
@@ -108,4 +110,4 @@ spec:
         config:
           region: noobaa
           profile: "default"
-      default: true     
+    default: true     
