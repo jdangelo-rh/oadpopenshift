@@ -86,8 +86,7 @@ spec:
       - aws
     restic:
       enable: true
-  backupLocations:
-    default: true  
+  backupLocations: 
     - config:
         insecureSkipTLSVerify: 'true'
         profile: default
@@ -101,6 +100,7 @@ spec:
         bucket: veleroobc-4f44dc3b-5737-4b53-91fa-844974d3bec4
         prefix: velero
       provider: aws
+      default: true
   snapshotLocations:
     - name: default
       velero:
@@ -108,4 +108,4 @@ spec:
         config:
           region: noobaa
           profile: "default"
-    default: true     
+      default: true     
