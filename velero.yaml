@@ -71,3 +71,41 @@ spec:
         profile: default
         region: noobaa
       provider: aws
+      
+      
+      
+apiVersion: oadp.openshift.io/v1alpha1
+kind: DataProtectionApplication
+metadata:
+  name: dpa-sample
+spec:
+  configuration:
+    velero:
+      defaultPlugins:
+      - openshift
+      - aws
+    restic:
+      enable: true
+  backupLocations:
+    default: true  
+    - config:
+        insecureSkipTLSVerify: 'true'
+        profile: default
+        region: noobaa
+        s3ForcePathStyle: 'true'
+        s3Url: 'https://s3-openshift-storage.apps.ocp4.example.com/'
+      credential:
+        name: cloud-credentials
+        key: cloud          
+      objectStorage:
+        bucket: veleroobc-4f44dc3b-5737-4b53-91fa-844974d3bec4
+        prefix: velero
+      provider: aws
+  snapshotLocations:
+    - name: default
+      velero:
+        provider: aws
+        config:
+          region: noobaa
+          profile: "default"
+    default: true     
