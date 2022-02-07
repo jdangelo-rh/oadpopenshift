@@ -68,3 +68,20 @@ replicaset.apps/velero-6794c4c9cd                             1         1       
 NAME                                                            HOST/PORT                                                                  PATH   SERVICES                             PORT    TERMINATION   WILDCARD
 route.route.openshift.io/oadp-dpa-sample-1-aws-registry-route   oadp-dpa-sample-1-aws-registry-route-openshift-adp.apps.ocp4.example.com          oadp-dpa-sample-1-aws-registry-svc   <all>                 None
 [root@workstation ~]# 
+
+
+apiVersion: velero.io/v1
+kind: Backup
+metadata:
+  namespace: openshift-adp
+  name: backup
+spec: 
+  defaultVolumesToRestic: true
+  includedNamespaces:
+  - atp
+  ttl: 720h0m0s
+  
+  
+
+
+
