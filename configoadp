@@ -111,3 +111,15 @@ The backup will be fully deleted after all associated data (disk snapshots, back
 sh-4.4$ ./velero backup get
 sh-4.4$ 
 
+apiVersion: velero.io/v1
+kind: Schedule
+metadata:
+  namespace: openshift-adp
+  name: schedule
+spec:
+  schedule: 15 20 * * *
+  template:
+    defaultVolumesToRestic: true
+    includedNamespaces:
+      - atp
+    ttl: 720h0m0s  
