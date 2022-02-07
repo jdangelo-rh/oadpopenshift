@@ -21,3 +21,20 @@ Secret Key
     
 https://s3-openshift-storage.apps.ocp4.example.com
 
+[root@workstation ~]# oc get obc -n default
+NAME        STORAGE-CLASS                 PHASE   AGE
+veleroobc   openshift-storage.noobaa.io   Bound   4d
+[root@workstation ~]# 
+
+[root@workstation ~]# oc get obc veleroobc -n default -o yaml -o go-template --template='{{.spec.bucketName}}'
+veleroobc-4f44dc3b-5737-4b53-91fa-844974d3bec4
+[root@workstation ~]#
+
+[root@workstation ~]# oc get secrets veleroobc -n default -o go-template --template='{{.data.AWS_ACCESS_KEY_ID}}' | base64 -d
+V48iVerbLY5oFghJfzZy
+[root@workstation ~]#
+
+[root@workstation ~]# oc get secrets veleroobc -n default -o go-template --template='{{.data.AWS_SECRET_ACCESS_KEY}}' | base64 -d
+eavCWetZCoIKbN+UNFh4czqLQJcV2XCGNLOPwPJ/
+[root@workstation ~]#
+
